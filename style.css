@@ -19,6 +19,34 @@ header{
     margin: 20px 20px;
 }
 
+.hamburger{
+    display: none;
+    width: 50px;
+    height:50px;
+
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    
+    background: none;
+    border: none;
+}
+
+.hamburger span{
+   display: block;
+   width: 24px;
+   height: 2px;
+   background-color: black;
+}
+
+li{
+    transition: color 0.3s ease;
+}
+
+li:hover{
+    color: rgba(0, 0, 0, 0.54);
+}
+
 /*ナビ*/
 .HeaderNav{
     align-items: center;
@@ -33,6 +61,7 @@ ul{
 .HeaderNav-list{
     margin-right: 40px;
     gap: 40px;
+    width: 100%;
 }
 
 .HeaderNav-list-items{
@@ -42,6 +71,27 @@ ul{
     font-size: 11px;
     font-weight: bold;
     text-decoration: none;
+
+}
+
+@media screen and (max-width: 1080px) {
+
+    .HeaderNav-list{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 1080px) {
+
+    .HeaderNav .HeaderNav-list{ 
+        display: none;
+    }
+
+    .hamburger{
+        display: flex;
+    }
+    
 }
 
 .ContactNav{
@@ -51,6 +101,15 @@ ul{
     border-radius: 20px;
     text-decoration: none;
     letter-spacing: 0.05em;
+
+    width: 100%;
+    margin: auto;
+
+    transition: background-color 1 ease;
+}
+
+.ContactNav:hover{
+    background-color: rgba(244, 178, 73, 0.772);
 }
 
 /*メイン*/
@@ -59,19 +118,61 @@ ul{
     position: absolute;
     top: 70px;
     left: -100px;
+    z-index: 0;
+}
+
+@media screen and (max-width: 767px) {
+    .Firstview-img-triangle-top{
+        display: none;
+    }
+    
 }
 
 .Firstview-img-triangle-bottom{
     position: absolute;
     top: 400px;
     right: 0;
+    z-index: 0;
+}
+
+@media screen and (max-width: 767px) {
+    .Firstview-img-triangle-bottom{
+        display: none;
+    }
+    
 }
 
 .Firstview-img-main{
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 775px;
+    width: 805px;
+    top: -30px;
+    right: -120px;
+    z-index: -1;
+}
+
+@media screen and (max-width: 767px) {
+    .Firstview-img-main{
+        display: none;
+    }
+    
+}
+
+.Firstview-img-main2{
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    .Firstview-img-main2{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: auto;
+
+        z-index: 1;
+    }
     
 }
 
@@ -79,42 +180,139 @@ ul{
     position: absolute;
     left: -50px;
     top: 100px;
+    z-index: 0;
 }
 
-.Firstview-Container-img-no1{
-    position: absolute;
-    top: 150px;
-    right: 400px;
+@media screen and (max-width:767px) {
+    .Firstview-img-ellipse{
+        display: none;
+    }
+    
 }
 
     /*FV*/
-.Firstview-Container{
-    max-width: 1048px;
-    margin-left: auto;
-    margin-right: auto;
+.Firstview{
     position: relative;
-    padding-top: 180px;
+    min-height: 750px;
+    overflow: hidden;
+}
+
+.Firstview-Container-main{
+    position: relative;
+
+}
+
+.Firstview-Container-no1{
+    position: absolute;
+    left: 500px;
+    top: 20px;
+}
+
+.Firstview-Container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 150px;
+
+    position: relative;
+    z-index: 2;
 }
  
 .Firstview-Comment-Title{
-    font-size: 45px;
-    width: fit-content;
+        position: relative;
+        left: 100px;
+        top: 80px;
+
+        font-size: 40px;
+        line-height: 1.8;
+        margin: 0;
 }
 
 .-contact{
+    position: relative;
+    display: block;
+
+    left: 100px;
+    top: 100px;
+
+    padding: 20px;
+
+    width: 460px;
+    box-sizing: border-box;
+
     color: white;
-    background-color: rgba(244, 156, 16, 0.913);
-    padding: 20px 100px;
+    background-color: rgba(250, 156, 6, 0.95);
+    
     border-radius: 100px;
     text-decoration: none;
+    text-align: center;
+
+    transition: background-color 0.5 ease;
+}
+
+.-contact:hover{
+    background-color: rgba(244, 178, 73, 0.772);
 }
 
 .detail{
+    position: relative;
+    left: 100px;
+    top: 70px;
     font-size: 10px;
     margin-top: 40px;
 }
 
-ul li h2{
-    margin: 0 auto;
-    padding: 0 auto;
+
+@media screen and (max-width: 767px) {
+    .Firstview-Container{
+        position: absolute;
+        top: 0;
+        left: 16px;
+
+        width: 100%;
+        max-width: none;
+
+        padding: 0px;
+
+        z-index: 2;
+    }
+
+    .Firstview-Container-main{
+        position: relative;
+        top: 400px;
+        bottom: 20px;
+        width: 100%;
+    }
+
+    .Firstview-Comment-Title{
+        position: absolute;
+        top: 80%;
+        left: 1%;
+        bottom: 50%;
+        font-size: 22px;
+        line-height: 36px;
+        margin: 0;
+    }
+    
+    .Firstview-Container-no1{
+        position: absolute;
+        top: 80%;
+        left: 10%;
+        width: 100%;
+        height: 102px;
+    }
+
+    .-contact{
+        position: absolute;
+        top: 550px;
+        left: 0;
+    }
+
+    .detail{
+        position: absolute;
+        top: 600px;
+        left: 0;
+    }
+
+
 }
